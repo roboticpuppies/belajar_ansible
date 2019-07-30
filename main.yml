@@ -1,0 +1,9 @@
+---
+- name: Install LAMP Stack
+  hosts: all
+
+  roles:
+    - bootstrap
+    - apache
+    - mysql
+    - wordpress

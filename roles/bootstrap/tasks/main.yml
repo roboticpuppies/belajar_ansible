@@ -1,0 +1,9 @@
+- name: Run yum update
+  yum:
+    name: "*"
+    state: latest
+
+- name: Install required packages
+  yum:
+    name: "{{ packages }}"
+    state: present

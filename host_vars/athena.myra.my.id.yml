@@ -1,0 +1,6 @@
+domain: "athena.myra.my.id"
+document_root: "/var/www/html/wordpress"
+packages:
+  - nano
+  - wget
+  - epel-release

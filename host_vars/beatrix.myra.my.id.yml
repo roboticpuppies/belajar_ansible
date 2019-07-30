@@ -1,0 +1,4 @@
+packages:
+  - nano
+  - wget
+  - bash-completion

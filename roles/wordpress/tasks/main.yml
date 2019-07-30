@@ -1,0 +1,18 @@
+- name: Download Wordpress
+  get_url:
+    url: https://wordpress.org/latest.tar.gz
+    dest: "{{ document_root }}/latest.tar.gz"
+
+- name: Unarchive Wordpress
+  unarchive:
+    src: "{{ document_root }}/latest.tar.gz"
+    dest: "{{ document_root }}"
+    remote_src: yes
+
+- name: Move Wordpress Files
+  shell: mv {{ document_root }}/wordpress/* {{ document_root }}
+
+- name: Create wp-config.php
+  file:
+    src: wp-config.php
+    dest: "{{ document_root }}"

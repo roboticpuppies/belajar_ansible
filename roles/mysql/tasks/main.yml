@@ -1,0 +1,36 @@
+- name: Add MariaDB repository
+  yum_repository:
+    name: MariaDB
+    description: MariaDB Repository
+    baseurl: http://yum.mariadb.org/10.2/centos7-amd64
+    gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+    gpgcheck: yes
+
+- name: Install MariaDB
+  yum:
+    name:
+    - MariaDB-server
+    - MariaDB-client
+    state: present
+
+- name: Start MariaDB
+  systemd:
+    name: mysql
+    state: started
+
+- name: Install MySQL-python
+  yum:
+    name: MySQL-python
+    state: present
+
+- name: Create database
+  mysql_db:
+    name: wp_db
+    state: present
+
+- name: Add DB User
+  mysql_user:
+    name: wp_user
+    password: "Password123!@#"
+    priv: "wp_db.*:ALL"
+    state: present

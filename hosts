@@ -1,0 +1,2 @@
+[webserver]
+athena.myra.my.id   ansible_host=10.10.29.220   ansible_user=root
